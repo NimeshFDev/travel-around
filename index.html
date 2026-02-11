@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Travel Around - Your premium travel partner in Sri Lanka. Experience the beauty of the island with our curated tours for international luxury travelers.">
+    <title>Travel Around | Explore Sri Lanka in Style</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS (CDN for simple setup without Node.js) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FFFFFF',       // Headings / Main Text
+                        secondary: '#94A3B8',     // Muted Text
+                        accent: '#FF7E67',        // Coral Pop
+                        background: '#0B0C10',    // Deep Dark BG
+                        surface: '#1F2833',       // Cards / Sections
+                        dark: '#000000',
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "linear-gradient(to bottom, rgba(11, 12, 16, 0.5), rgba(11, 12, 16, 0.8)), url('hero_nine_arches.jpg')",
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 1s ease-out',
+                        'bounce-slow': 'bounce 2s infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            }
+            .glass {
+                background: rgba(31, 40, 51, 0.7);
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+        }
+    </style>
+</head>
+
+<body class="font-sans text-primary bg-background antialiased overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-5">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="text-3xl font-serif font-bold text-white tracking-wide">
+                Travel Around<span class="text-accent text-4xl">.</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="text-white hover:text-accent font-medium transition-colors">Home</a>
+                <a href="destinations.html"
+                    class="text-gray-300 hover:text-accent font-medium transition-colors">Destinations</a>
+                <a href="#experiences"
+                    class="text-gray-300 hover:text-accent font-medium transition-colors">Experiences</a>
+                <a href="#booking"
+                    class="px-6 py-2 bg-accent text-white rounded-full font-semibold shadow-lg hover:bg-orange-600 transition-transform transform hover:-translate-y-1">
+                    Book Now
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-white text-2xl focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden absolute top-full left-0 w-full bg-surface shadow-xl py-6 px-6 flex-col space-y-4 md:hidden border-t border-gray-800">
+            <a href="#home" class="text-primary hover:text-accent font-medium">Home</a>
+            <a href="destinations.html" class="text-primary hover:text-accent font-medium">Destinations</a>
+            <a href="#experiences" class="text-primary hover:text-accent font-medium">Experiences</a>
+            <a href="#booking" class="text-accent font-semibold">Book Now</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home"
+        class="relative h-screen flex items-center justify-center bg-hero-pattern bg-cover bg-center bg-fixed bg-no-repeat text-white text-center px-4">
+        <div class="max-w-4xl z-10 animate-fade-in-up">
+            <span class="block text-accent font-bold tracking-[0.2em] uppercase mb-4 text-sm md:text-base">Welcome to
+                Paradise</span>
+            <h1 class="text-5xl md:text-7xl font-serif font-bold leading-tight mb-6 text-shadow">
+                Discover the Soul of <br> <span class="italic text-accent">Sri Lanka</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+                Experience an unforgettable journey through ancient cities, pristine beaches, and misty mountains.
+                Curated luxury tours designed for the global traveler.
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#destinations"
+                    class="px-8 py-4 bg-accent text-white rounded-full font-bold shadow-lg hover:bg-orange-600 transition-all transform hover:-translate-y-1 hover:shadow-orange-500/30">
+                    Explore Destinations
+                </a>
+                <a href="https://wa.me/94772401258"
+                    class="px-8 py-4 border-2 border-white text-white rounded-full font-bold hover:bg-white hover:text-background transition-all">
+                    <i class="fab fa-whatsapp mr-2"></i> Chat with Us
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 opacity-80">
+            <div class="w-[30px] h-[50px] border-2 border-white rounded-[15px] relative flex justify-center">
+                <div class="w-1.5 h-1.5 bg-white rounded-full mt-2 animate-bounce"></div>
+            </div>
+            <span class="text-xs tracking-widest uppercase">Scroll</span>
+        </div>
+    </header>
+
+    <!-- Stats Section -->
+    <section class="relative z-20 -mt-16 container mx-auto px-4">
+        <div
+            class="bg-surface rounded-2xl shadow-xl p-8 md:p-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-center border border-gray-800">
+            <div class="space-y-2">
+                <h3 class="text-4xl font-serif font-bold text-white">10+</h3>
+                <p class="text-secondary font-medium text-sm uppercase tracking-wide">Years Experience</p>
+            </div>
+            <div class="space-y-2">
+                <h3 class="text-4xl font-serif font-bold text-white">5k+</h3>
+                <p class="text-secondary font-medium text-sm uppercase tracking-wide">Happy Travelers</p>
+            </div>
+            <div class="space-y-2">
+                <h3 class="text-4xl font-serif font-bold text-white">50+</h3>
+                <p class="text-secondary font-medium text-sm uppercase tracking-wide">Luxury Hotels</p>
+            </div>
+            <div class="space-y-2">
+                <h3 class="text-4xl font-serif font-bold text-white">24/7</h3>
+                <p class="text-secondary font-medium text-sm uppercase tracking-wide">Support</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations Section -->
+    <section id="destinations" class="py-24 bg-background">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-accent font-bold tracking-widest uppercase text-sm">Top Locations</span>
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-white mt-3 mb-6">Popular Destinations</h2>
+                <p class="text-secondary text-lg">From the cultural triangle to the southern coast, explore the diverse
+                    landscapes of Sri Lanka.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div
+                    class="group bg-surface rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-800">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="card_sigiriya.jpg" alt="Sigiriya Rock"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-center mb-4 text-sm text-secondary">
+                            <span class="flex items-center gap-1"><i class="fas fa-map-marker-alt text-accent"></i>
+                                Central Province</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-clock text-accent"></i> 3 Days</span>
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold text-white mb-3">Sigiriya & Dambulla</h3>
+                        <p class="text-secondary mb-6 leading-relaxed">Climb the ancient Lion Rock fortress and explore
+                            the cave temples of Dambulla.</p>
+                        <a href="#"
+                            class="inline-flex items-center text-accent font-semibold hover:text-white transition-colors">
+                            View Details <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                    class="group bg-surface rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-800">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="ella_train.png" alt="Ella"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-center mb-4 text-sm text-secondary">
+                            <span class="flex items-center gap-1"><i class="fas fa-map-marker-alt text-accent"></i> Hill
+                                Country</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-clock text-accent"></i> 2 Days</span>
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold text-white mb-3">Ella & Nine Arches</h3>
+                        <p class="text-secondary mb-6 leading-relaxed">Ride the iconic blue train through tea
+                            plantations
+                            and witness the famous Nine Arches Bridge.</p>
+                        <a href="#"
+                            class="inline-flex items-center text-accent font-semibold hover:text-white transition-colors">
+                            View Details <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div
+                    class="group bg-surface rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-800">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="mirissa_beach.png" alt="Mirissa"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-center mb-4 text-sm text-secondary">
+                            <span class="flex items-center gap-1"><i class="fas fa-map-marker-alt text-accent"></i>
+                                Southern Coast</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-clock text-accent"></i> 4 Days</span>
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold text-white mb-3">Mirissa & Galle</h3>
+                        <p class="text-secondary mb-6 leading-relaxed">Relax on pristine beaches, go whale watching, and
+                            walk the ramparts of the historic Galle Fort.</p>
+                        <a href="#"
+                            class="inline-flex items-center text-accent font-semibold hover:text-white transition-colors">
+                            View Details <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experiences" class="py-24 bg-surface overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- Content -->
+                <div class="lg:w-1/2">
+                    <span class="text-accent font-bold tracking-widest uppercase text-sm mb-2 block">Why Travel
+                        Around?</span>
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold text-white mb-6">We Craft Unforgettable
+                        Memories</h2>
+                    <p class="text-secondary text-lg mb-10 leading-relaxed">
+                        We don't just book tours; we curate experiences. Our deep local knowledge combined with
+                        international standards ensures your journey is seamless and spectacular.
+                    </p>
+
+                    <div class="space-y-8">
+                        <div class="flex gap-5">
+                            <div
+                                class="w-14 h-14 bg-background border border-gray-700 rounded-full flex items-center justify-center shrink-0">
+                                <i class="fas fa-shield-alt text-xl text-accent"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-2">Safe & Secure</h4>
+                                <p class="text-secondary">Your safety is our priority. We use certified guides and
+                                    insured vehicles for peace of mind.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-5">
+                            <div
+                                class="w-14 h-14 bg-background border border-gray-700 rounded-full flex items-center justify-center shrink-0">
+                                <i class="fas fa-gem text-xl text-accent"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-2">Premium Service</h4>
+                                <p class="text-secondary">From 5-star accommodation to private transfers, we handle
+                                    every
+                                    detail with care.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-5">
+                            <div
+                                class="w-14 h-14 bg-background border border-gray-700 rounded-full flex items-center justify-center shrink-0">
+                                <i class="fas fa-leaf text-xl text-accent"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-2">Sustainable Travel</h4>
+                                <p class="text-secondary">We promote eco-friendly practices to protect our beautiful
+                                    island for future generations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image -->
+                <div class="lg:w-1/2 relative">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="experience_safari.png" alt="Safari Experience" class="w-full h-auto object-cover">
+                        <!-- Decorative border -->
+                        <div
+                            class="absolute -z-10 top-6 -right-6 w-full h-full border-2 border-accent rounded-2xl hidden md:block">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 bg-gradient-to-r from-surface to-background relative border-t border-gray-800 text-center">
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6 text-white">Ready to plan your dream vacation?
+            </h2>
+            <p class="text-xl text-secondary mb-10 max-w-2xl mx-auto">Contact our travel experts today for a customized
+                itinerary tailored to your preferences.</p>
+            <a href="#booking"
+                class="inline-block px-10 py-4 bg-accent text-white rounded-full font-bold text-lg shadow-lg hover:bg-orange-600 transition-transform transform hover:-translate-y-1">
+                Get a Free Quote
+            </a>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="py-24 bg-background relative">
+        <div class="container mx-auto px-6">
+            <div
+                class="max-w-4xl mx-auto bg-surface rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row border border-gray-800">
+                <!-- Form Image -->
+                <div class="md:w-5/12 bg-gray-800 bg-cover bg-center"
+                    style="background-image: url('hero_nine_arches.jpg');">
+                    <div class="h-full w-full bg-black/70 p-12 flex flex-col justify-center text-white">
+                        <h3 class="text-3xl font-serif font-bold mb-4">Book Your Trip</h3>
+                        <p class="mb-6 opacity-90 text-gray-300">Fill out the form and our agents will contact you
+                            within 24 hours.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-3">
+                                <i class="fab fa-whatsapp text-2xl text-accent"></i>
+                                <span>+94 77 240 1258</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-envelope text-2xl text-accent"></i>
+                                <span>hello@travelaround.lk</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <div class="md:w-7/12 p-12">
+                    <form id="booking-form" class="space-y-6">
+                        <div>
+                            <label class="block text-secondary font-medium mb-2">Your Name</label>
+                            <input type="text" id="name" required
+                                class="w-full px-4 py-3 rounded-lg bg-background border border-gray-700 text-white focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
+                                placeholder="John Doe">
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-secondary font-medium mb-2">Phone Number</label>
+                                <input type="tel" id="phone" required
+                                    class="w-full px-4 py-3 rounded-lg bg-background border border-gray-700 text-white focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
+                                    placeholder="+94 ...">
+                            </div>
+                            <div>
+                                <label class="block text-secondary font-medium mb-2">Travel Date</label>
+                                <input type="date" id="date"
+                                    class="w-full px-4 py-3 rounded-lg bg-background border border-gray-700 text-white focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-secondary font-medium mb-2">Interested Destination</label>
+                            <select id="destination"
+                                class="w-full px-4 py-3 rounded-lg bg-background border border-gray-700 text-white focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all">
+                                <option value="Custom Tour">Custom Tour</option>
+                                <option value="Sigiriya & Dambulla">Sigiriya & Dambulla</option>
+                                <option value="Ella & Nine Arches">Ella & Nine Arches</option>
+                                <option value="Mirissa & Galle">Mirissa & Galle</option>
+                                <option value="Kandy">Kandy</option>
+                                <option value="Yala Safari">Yala Safari</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-secondary font-medium mb-2">Message</label>
+                            <textarea id="message" rows="3"
+                                class="w-full px-4 py-3 rounded-lg bg-background border border-gray-700 text-white focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
+                                placeholder="Tell us about your travel plans..."></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full py-4 bg-accent text-white font-bold rounded-lg shadow-lg hover:bg-orange-600 transition-all transform hover:-translate-y-1">
+                            Send Inquiry via WhatsApp <i class="fab fa-whatsapp ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-black text-secondary py-20 border-t border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Brand -->
+                <div class="lg:col-span-1">
+                    <a href="#" class="text-2xl font-serif font-bold text-white mb-6 block">
+                        Travel Around<span class="text-accent">.</span>
+                    </a>
+                    <p class="mb-8 leading-relaxed text-sm">
+                        Your gateway to the wonders of Sri Lanka. Specialized in creating premium travel experiences for
+                        the discerning global traveler.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-surface flex items-center justify-center hover:bg-accent hover:text-white transition-colors text-white"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-surface flex items-center justify-center hover:bg-accent hover:text-white transition-colors text-white"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-surface flex items-center justify-center hover:bg-accent hover:text-white transition-colors text-white"><i
+                                class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="hover:text-accent transition-colors">Home</a></li>
+                        <li><a href="#about" class="hover:text-accent transition-colors">About Us</a></li>
+                        <li><a href="destinations.html" class="hover:text-accent transition-colors">Destinations</a>
+                        </li>
+                        <li><a href="#packages" class="hover:text-accent transition-colors">Packages</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="lg:col-span-2">
+                    <h4 class="text-white font-bold text-lg mb-6">Contact Us</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt text-accent mt-1"></i>
+                            <span>50, Mabimawaththa, Thalammahara, Pannala</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-phone text-accent mt-1"></i>
+                            <span>+94 77 240 1258</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-envelope text-accent mt-1"></i>
+                            <span>hello@travelaround.lk</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-center text-sm">
+                <p>&copy; 2026 Travel Around. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

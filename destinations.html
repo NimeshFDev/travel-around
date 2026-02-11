@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Explore Top Destinations in Sri Lanka - Travel Around. From ancient cities to pristine beaches.">
+    <title>Destinations | Travel Around</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FFFFFF',       // Headings / Main Text
+                        secondary: '#94A3B8',     // Muted Text
+                        accent: '#FF7E67',        // Coral Pop
+                        background: '#0B0C10',    // Deep Dark BG
+                        surface: '#1F2833',       // Cards / Sections
+                        dark: '#000000',
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    backgroundImage: {
+                        'hero-destinations': "linear-gradient(to bottom, rgba(11, 12, 16, 0.5), rgba(11, 12, 16, 0.6)), url('mirissa_beach.png')",
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 1s ease-out',
+                        'bounce-slow': 'bounce 2s infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="font-sans text-primary bg-background antialiased overflow-x-hidden">
+
+    <!-- Navigation (Same as index) -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-5">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-serif font-bold text-white tracking-wide">
+                Travel Around<span class="text-accent text-4xl">.</span>
+            </a>
+
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-gray-300 hover:text-accent font-medium transition-colors">Home</a>
+                <a href="destinations.html"
+                    class="text-white hover:text-accent font-medium transition-colors border-b-2 border-accent">Destinations</a>
+                <a href="index.html#experiences"
+                    class="text-gray-300 hover:text-accent font-medium transition-colors">Experiences</a>
+                <a href="index.html#booking"
+                    class="px-6 py-2 bg-accent text-white rounded-full font-semibold shadow-lg hover:bg-orange-600 transition-transform transform hover:-translate-y-1">
+                    Book Now
+                </a>
+            </div>
+
+            <button id="menu-btn" class="md:hidden text-white text-2xl focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu"
+            class="hidden absolute top-full left-0 w-full bg-surface shadow-xl py-6 px-6 flex-col space-y-4 md:hidden border-t border-gray-800">
+            <a href="index.html" class="text-primary hover:text-accent font-medium">Home</a>
+            <a href="destinations.html" class="text-accent font-semibold">Destinations</a>
+            <a href="index.html#experiences" class="text-primary hover:text-accent font-medium">Experiences</a>
+            <a href="index.html#booking" class="text-accent font-semibold">Book Now</a>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header
+        class="relative h-[60vh] flex items-center justify-center bg-hero-destinations bg-cover bg-center bg-fixed text-white text-center px-4">
+        <div class="max-w-4xl z-10">
+            <h1 class="text-5xl md:text-7xl font-serif font-bold leading-tight mb-4">
+                Explore <span class="text-accent italic">Paradise</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
+                Discover the hidden gems and iconic landmarks that make Sri Lanka the pearl of the Indian Ocean.
+            </p>
+        </div>
+    </header>
+
+    <!-- Filter/Category Section -->
+    <div class="container mx-auto px-6 -mt-8 relative z-20">
+        <div class="bg-surface rounded-xl shadow-lg p-4 flex flex-wrap justify-center gap-4 border border-gray-800">
+            <button
+                class="filter-btn active px-6 py-2 rounded-full bg-accent text-white font-medium hover:bg-orange-600 transition-colors"
+                data-filter="all">All</button>
+            <button
+                class="filter-btn px-6 py-2 rounded-full bg-background text-secondary font-medium hover:bg-gray-800 transition-colors"
+                data-filter="culture">Culture</button>
+            <button
+                class="filter-btn px-6 py-2 rounded-full bg-background text-secondary font-medium hover:bg-gray-800 transition-colors"
+                data-filter="beach">Beach</button>
+            <button
+                class="filter-btn px-6 py-2 rounded-full bg-background text-secondary font-medium hover:bg-gray-800 transition-colors"
+                data-filter="hill-country">Hill Country</button>
+            <button
+                class="filter-btn px-6 py-2 rounded-full bg-background text-secondary font-medium hover:bg-gray-800 transition-colors"
+                data-filter="wildlife">Wildlife</button>
+        </div>
+    </div>
+
+    <!-- Destinations Grid -->
+    <section class="py-16 bg-background">
+        <div class="container mx-auto px-6">
+            <div id="destinations-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Card: Sigiriya -->
+                <div class="destination-item group bg-surface rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-800"
+                    data-category="culture">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="card_sigiriya.jpg" alt="Sigiriya Rock"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute top-4 right-4 bg-black/70 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-accent uppercase tracking-wide">
+                            Culture</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-serif font-bold text-white mb-2">Sigiriya Rock Fortress</h3>
+                        <p class="text-secondary mb-4 text-sm line-clamp-3">The 8th wonder of the world. Ancient palace
+                            complex built on a massive rock column dominated by massive frescoes.</p>
+                        <ul class="text-sm text-gray-400 mb-6 space-y-1">
+                            <li><i class="fas fa-check text-accent mr-2"></i>UNESCO World Heritage Site</li>
+                            <li><i class="fas fa-check text-accent mr-2"></i>Lion's Paw Entrance</li>
+                        </ul>
+                        <a href="index.html#booking"
+                            class="block w-full text-center py-3 border border-accent text-accent rounded-lg font-semibold hover:bg-accent hover:text-white transition-colors">Explore
+                            Tour</a>
+                    </div>
+                </div>
+
+                <!-- Card: Kandy -->
+                <div class="destination-item group bg-surface rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-800"
+                    data-category="culture">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="kandy_temple.png" alt="Kandy Temple"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute top-4 right-4 bg-black/70 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-accent uppercase tracking-wide">
+                            Culture</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-serif font-bold text-white mb-2">Temple of the Tooth</h3>
+                        <p class="text-secondary mb-4 text-sm line-clamp-3">Located in the royal palace complex of the
+                            former Kingdom of Kandy, which houses the relic of the tooth of the Buddha.</p>
+                        <ul class="text-sm text-gray-400 mb-6 space-y-1">
+                            <li><i class="fas fa-check text-accent mr-2"></i>Cultural Capital</li>
+                            <li><i class="fas fa-check text-accent mr-2"></i>Esala Perahera</li>
+                        </ul>
+                        <a href="index.html#booking"
+                            class="block w-full text-center py-3 border border-accent text-accent rounded-lg font-semibold hover:bg-accent hover:text-white transition-colors">Explore
+                            Tour</a>
+                    </div>
+                </div>
+
+                <!-- Card: Ella -->
+                <div class="destination-item group bg-surface rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-800"
+                    data-category="hill-country">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="ella_train.png" alt="Ella"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute top-4 right-4 bg-black/70 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-green-400 uppercase tracking-wide">
+                            Hill Country</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-serif font-bold text-white mb-2">Ella & Nine Arches</h3>
+                        <p class="text-secondary mb-4 text-sm line-clamp-3">A small town in the Badulla District,
+                            governed by an Urban Council. It is approximately 200 kilometres east of Colombo.</p>
+                        <ul class="text-sm text-gray-400 mb-6 space-y-1">
+                            <li><i class="fas fa-check text-accent mr-2"></i>Scenic Train Ride</li>
+                            <li><i class="fas fa-check text-accent mr-2"></i>Hiking Trails</li>
+                        </ul>
+                        <a href="index.html#booking"
+                            class="block w-full text-center py-3 border border-accent text-accent rounded-lg font-semibold hover:bg-accent hover:text-white transition-colors">Explore
+                            Tour</a>
+                    </div>
+                </div>
+
+                <!-- Card: Nuwara Eliya -->
+                <div class="destination-item group bg-surface rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-800"
+                    data-category="hill-country">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="nuwara_eliya_tea.png" alt="Nuwara Eliya"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute top-4 right-4 bg-black/70 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-green-400 uppercase tracking-wide">
+                            Hill Country</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-serif font-bold text-white mb-2">Nuwara Eliya</h3>
+                        <p class="text-secondary mb-4 text-sm line-clamp-3">Known as 'Little England', this city in the
+                            tea country hills features colonial architecture and cool climate.</p>
+                        <ul class="text-sm text-gray-400 mb-6 space-y-1">
+                            <li><i class="fas fa-check text-accent mr-2"></i>Tea Factories</li>
+                            <li><i class="fas fa-check text-accent mr-2"></i>Gregory Lake</li>
+                        </ul>
+                        <a href="index.html#booking"
+                            class="block w-full text-center py-3 border border-accent text-accent rounded-lg font-semibold hover:bg-accent hover:text-white transition-colors">Explore
+                            Tour</a>
+                    </div>
+                </div>
+
+                <!-- Card: Mirissa -->
+                <div class="destination-item group bg-surface rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-800"
+                    data-category="beach">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="mirissa_beach.png" alt="Mirissa"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute top-4 right-4 bg-black/70 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-blue-400 uppercase tracking-wide">
+                            Beach</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-serif font-bold text-white mb-2">Mirissa Beach</h3>
+                        <p class="text-secondary mb-4 text-sm line-clamp-3">A small town on the south coast of Sri
+                            Lanka,
+                            located in the Matara District of the Southern Province.</p>
+                        <ul class="text-sm text-gray-400 mb-6 space-y-1">
+                            <li><i class="fas fa-check text-accent mr-2"></i>Whale Watching</li>
+                            <li><i class="fas fa-check text-accent mr-2"></i>Coconut Tree Hill</li>
+                        </ul>
+                        <a href="index.html#booking"
+                            class="block w-full text-center py-3 border border-accent text-accent rounded-lg font-semibold hover:bg-accent hover:text-white transition-colors">Explore
+                            Tour</a>
+                    </div>
+                </div>
+
+                <!-- Card: Arugam Bay -->
+                <div class="destination-item group bg-surface rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-800"
+                    data-category="beach">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="arugam_bay_surf.png" alt="Arugam Bay"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute top-4 right-4 bg-black/70 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-blue-400 uppercase tracking-wide">
+                            Beach</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-serif font-bold text-white mb-2">Arugam Bay</h3>
+                        <p class="text-secondary mb-4 text-sm line-clamp-3">A moon-shaped bay, home to a legendary point
+                            break that is considered one of the top surf spots in the world.</p>
+                        <ul class="text-sm text-gray-400 mb-6 space-y-1">
+                            <li><i class="fas fa-check text-accent mr-2"></i>Surfing Paradise</li>
+                            <li><i class="fas fa-check text-accent mr-2"></i>Laid-back Vibe</li>
+                        </ul>
+                        <a href="index.html#booking"
+                            class="block w-full text-center py-3 border border-accent text-accent rounded-lg font-semibold hover:bg-accent hover:text-white transition-colors">Explore
+                            Tour</a>
+                    </div>
+                </div>
+
+                <!-- Card: Yala -->
+                <div class="destination-item group bg-surface rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-800"
+                    data-category="wildlife">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="experience_safari.png" alt="Yala Safari"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute top-4 right-4 bg-black/70 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-orange-400 uppercase tracking-wide">
+                            Wildlife</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-serif font-bold text-white mb-2">Yala National Park</h3>
+                        <p class="text-secondary mb-4 text-sm line-clamp-3">The most visited and second largest national
+                            park in Sri Lanka, bordering the Indian Ocean.</p>
+                        <ul class="text-sm text-gray-400 mb-6 space-y-1">
+                            <li><i class="fas fa-check text-accent mr-2"></i>Highest Leopard Density</li>
+                            <li><i class="fas fa-check text-accent mr-2"></i>Elephant Safaris</li>
+                        </ul>
+                        <a href="index.html#booking"
+                            class="block w-full text-center py-3 border border-accent text-accent rounded-lg font-semibold hover:bg-accent hover:text-white transition-colors">Explore
+                            Tour</a>
+                    </div>
+                </div>
+
+                <!-- Card: Galle -->
+                <div class="destination-item group bg-surface rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-800"
+                    data-category="culture">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="galle_fort_streets.png" alt="Galle Fort"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute top-4 right-4 bg-black/70 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-accent uppercase tracking-wide">
+                            Culture</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-serif font-bold text-white mb-2">Galle Fort</h3>
+                        <p class="text-secondary mb-4 text-sm line-clamp-3">A settlement in the Bay of Galle on the
+                            southwest coast of Sri Lanka, built first in 1588 by the Portuguese.</p>
+                        <ul class="text-sm text-gray-400 mb-6 space-y-1">
+                            <li><i class="fas fa-check text-accent mr-2"></i>Dutch Architecture</li>
+                            <li><i class="fas fa-check text-accent mr-2"></i>Boutique Shops</li>
+                        </ul>
+                        <a href="index.html#booking"
+                            class="block w-full text-center py-3 border border-accent text-accent rounded-lg font-semibold hover:bg-accent hover:text-white transition-colors">Explore
+                            Tour</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Map CTA Section -->
+    <section class="py-20 bg-background text-white relative overflow-hidden border-t border-gray-800">
+        <div class="absolute inset-0 opacity-10"
+            style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');">
+        </div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h2 class="text-3xl md:text-5xl font-serif font-bold mb-6">Not Sure Where to Start?</h2>
+            <p class="text-lg text-secondary max-w-2xl mx-auto mb-10">
+                Our travel experts can help you build the perfect itinerary based on your interests and time.
+            </p>
+            <a href="index.html#booking"
+                class="inline-block px-10 py-4 bg-accent text-white rounded-full font-bold text-lg shadow-lg hover:bg-orange-600 transition-transform transform hover:-translate-y-1">
+                Plan My Trip
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-secondary py-12 border-t border-gray-800">
+        <div class="container mx-auto px-6 text-center">
+            <div class="mb-4">
+                <a href="index.html" class="text-2xl font-serif font-bold text-white">
+                    Travel Around<span class="text-accent">.</span>
+                </a>
+            </div>
+            <p class="text-sm mb-6">Explore the world with us. Premium travel experiences in Sri Lanka.</p>
+            <div class="text-sm border-t border-gray-800 pt-6">
+                <p>&copy; 2026 Travel Around. All Rights Reserved.</p>
+                <div class="flex justify-center items-center gap-6 mt-4 opacity-80">
+                    <span class="flex items-center gap-2"><i class="fas fa-map-marker-alt text-accent"></i> 50,
+                        Mabimawaththa, Thalammahara, Pannala</span>
+                    <span class="flex items-center gap-2"><i class="fas fa-phone text-accent"></i> +94 77 240
+                        1258</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Inline script for filtering
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const items = document.querySelectorAll('.destination-item');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all
+                    filterBtns.forEach(b => {
+                        b.classList.remove('bg-accent', 'text-white');
+                        b.classList.add('bg-background', 'text-secondary');
+                    });
+                    // Add active to clicked
+                    btn.classList.remove('bg-background', 'text-secondary');
+                    btn.classList.add('bg-accent', 'text-white');
+
+                    const filterValue = btn.getAttribute('data-filter');
+
+                    items.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                            // Add animation
+                            item.classList.add('animate-fade-in-up');
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
